@@ -1,1 +1,69 @@
-<h1>Hola</h1>
+<div class="container mx-auto m-10 bg-white rounded-md p-5 shadow-sm">
+  <h2 class="text-slate-800 font-bold text-4xl">Datos personales</h2>
+  <p class="text-sm text-slate-900">Con la finalidad de ofrecer una mejor respuesta, por favor rellena esta información que nos será de utilidad para conocerte mejor.</p>
+  <hr class="my-4">
+  <form class="flex flex-col w-full space-y-4">
+
+    <!-- Personal Info -->
+    <div class="flex flex-col md:flex-row md:space-x-4">
+      <div class="w-full">
+        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Nombre completo:<span title="Campo obligatorio" class="align-super text-red-400 font-bold cursor-default">*</span></label>
+        <div class="flex flex-row space-x-2">
+          <input type="text" autocomplete="off" id="last_name" name="last_name" class="w-full p-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Apellido paterno, apellido materno" required />
+          <input type="text" autocomplete="off" id="first_name" name="first_name" class="w-full p-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Nombre(s)" required />
+        </div>
+      </div>
+      <div class="md:w-1/2">
+        <label for="role_number" class="block mb-2 text-sm font-medium text-gray-900">Matricula:<span title="Campo obligatorio" class="align-super text-red-400 font-bold cursor-default">*</span></label>
+        <input type="text" autocomplete="off" id="role_number" name="role_number" class="w-full p-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="1234567890" required />
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row md:space-x-4">
+      <div class="w-full">
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Correo electrónico:<span title="Campo obligatorio" class="align-super text-red-400 font-bold cursor-default">*</span></label>
+        <input type="email" autocomplete="off" id="email" name="email" class="w-full p-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="correo@prueba.com" required />
+      </div>
+      <div class="w-full">
+        <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">Teléfono:</label>
+        <input type="text" autocomplete="off" id="phone" name="phone" class="w-full p-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="(833) 111 2233" required />
+      </div>
+    </div>
+
+    <!-- Academic Info -->
+
+    <div class="flex flex-col md:flex-row md:space-x-4">
+      <div class="w-full">
+        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Carrera<span title="Campo obligatorio" class="align-super text-red-400 font-bold cursor-default">*</span></label>
+        <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+          <option selected>Seleccione una carrera</option>
+          <option value="1">IC - Ingeniería Civil</option>
+          <option value="2">IIS - Ingeniería Industrial y de Sistemas</option>
+          <option value="3">ISC - Ingeniería en Sistemas Computacionales</option>
+          <option value="4">IN - Ingeniería en Negocios</option>
+        </select>
+      </div>
+      <div class="w-full">
+        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Semestre<span title="Campo obligatorio" class="align-super text-red-400 font-bold cursor-default">*</span></label>
+        <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+          <option selected>Seleccione tu semestre</option>
+          <option value="1">Primer Semestre</option>
+          <option value="2">Segundo Semestre</option>
+          <option value="3">Tercer Semestre</option>
+          <option value="4">Cuarto Semestre</option>
+          <option value="5">Quinto Semestre</option>
+          <option value="6">Sexto Semestre</option>
+          <option value="7">Séptimo Semestre</option>
+          <option value="8">Octavo Semestre</option>
+          <option value="9">Noveno Semestre</option>
+        </select>
+      </div>
+
+    </div>
+
+
+    <div class="flex justify-end w-full">
+      <button type="button" class="focus:outline-none text-white bg-orange-400 hover:bg-orange-300 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Continuar</button>
+    </div>
+  </form>
+</div>
