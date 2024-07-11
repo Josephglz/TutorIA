@@ -20,6 +20,8 @@ import { RouterOutlet } from '@angular/router';
 export class StudentFormComponent implements OnInit {
   studentData: Student = {} as Student;
   studentDataFormControls: FormGroup = {} as FormGroup;
+  formErrorMsg: string = '';
+  showDialog: boolean = false;
 
   constructor(private _appService: AppService) { }
 
@@ -33,7 +35,7 @@ export class StudentFormComponent implements OnInit {
       lastName: new FormControl('', Validators.required),
       role_number: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{10}$')]),
       email: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9]{3,}@[a-zA-Z0-9]{3,}\.[a-zA-Z0-9]{3,}$')]),
-      phone: new FormControl('', [Validators.pattern('^[0-9]{10}$')]),
+      phone: new FormControl('', Validators.pattern('^[0-9]{10}$')),
       career: new FormControl('0', [Validators.required, Validators.pattern('^[1-4]$')]),
       semester: new FormControl('0', [Validators.required, Validators.pattern('^[1-9]$')]),
       gender: new FormControl(false, Validators.required)
@@ -46,8 +48,40 @@ export class StudentFormComponent implements OnInit {
       this._appService.storeStudentData(formData);
       window.location.reload();
     } else {
-      console.error('¡El formulario no es válido!');
+      this.showFormErrorDialog();
     }
+  }
+
+  showFormErrorDialog(): void {
+    let invalidFields = '';
+    if (this.studentDataFormControls.controls['firstName'].invalid) {
+      invalidFields += 'Nombre, ';
+    }
+    if (this.studentDataFormControls.controls['lastName'].invalid) {
+      invalidFields += 'Apellido, ';
+    }
+    if (this.studentDataFormControls.controls['role_number'].invalid) {
+      invalidFields += 'Matrícula, ';
+    }
+    if (this.studentDataFormControls.controls['email'].invalid) {
+      invalidFields += 'Correo electrónico, ';
+    }
+    if (this.studentDataFormControls.controls['phone'].invalid) {
+      invalidFields += 'Teléfono, ';
+    }
+    if (this.studentDataFormControls.controls['career'].invalid) {
+      invalidFields += 'Carrera, ';
+    }
+    if (this.studentDataFormControls.controls['semester'].invalid) {
+      invalidFields += 'Semestre, ';
+    }
+
+    invalidFields = invalidFields.slice(0, -2);
+    this.formErrorMsg = `Por favor, llena los campos: ${invalidFields}`;
+    this.showDialog = true;
+    setTimeout(() => {
+      this.showDialog = false;
+    }, 3000);
   }
 
 }
