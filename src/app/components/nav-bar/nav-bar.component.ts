@@ -30,4 +30,15 @@ export class NavBarComponent {
   toggleOptions(): void {
     this.collapseOptions = !this.collapseOptions;
   }
+
+  logout(): void {
+    this._appService.deleteStudentData();
+    window.location.reload();
+  }
+
+  updateData(): void {
+    this._appService.safeUpdateStudentData();
+    window.location.reload();
+  }
+
 }

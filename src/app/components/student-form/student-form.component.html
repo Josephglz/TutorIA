@@ -37,6 +37,7 @@
       <div class="w-full">
         <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Correo electrónico:<span title="Campo obligatorio" class="align-super text-red-400 font-bold cursor-default">*</span></label>
         <input
+          [value]="studentData.email || ''"
           formControlName="email" type="email" autocomplete="off" id="email" name="email"
           [ngClass]="{'border-red-500': studentDataFormControls.get('email')?.invalid && studentDataFormControls.get('email')?.touched,
           'border-green-500': studentDataFormControls.get('email')?.valid && studentDataFormControls.get('email')?.touched}"

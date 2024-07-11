@@ -30,6 +30,15 @@ export class AppService {
     localStorage.setItem('studentData', JSON.stringify(studentData));
   }
 
+  deleteStudentData(): void {
+    this.studentData = {} as Student;
+    localStorage.removeItem('studentData');
+  }
+
+  safeUpdateStudentData(): void {
+    localStorage.removeItem('studentData');
+  }
+
   isLogged(): boolean {
     return !!localStorage.getItem('studentData');
   }
