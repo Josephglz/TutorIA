@@ -33,6 +33,7 @@ export class StudentFormComponent implements OnInit {
       lastName: new FormControl('', Validators.required),
       role_number: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{10}$')]),
       email: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9]{3,}@[a-zA-Z0-9]{3,}\.[a-zA-Z0-9]{3,}$')]),
+      phone: new FormControl('', [Validators.pattern('^[0-9]{10}$')]),
       career: new FormControl('0', [Validators.required, Validators.pattern('^[1-4]$')]),
       semester: new FormControl('0', [Validators.required, Validators.pattern('^[1-9]$')]),
       gender: new FormControl(false, Validators.required)
