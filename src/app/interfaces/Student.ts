@@ -6,4 +6,5 @@ export interface Student {
   phone?: string;
   career: number;
   semester: number;
+  gender: boolean;
 }

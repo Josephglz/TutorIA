@@ -1,0 +1,98 @@
+<div class="container mx-auto m-10 bg-white rounded-md p-5 shadow-sm">
+  <h2 class="text-slate-800 font-bold text-4xl">Datos personales</h2>
+  <p class="text-sm text-slate-900">Con la finalidad de ofrecer una mejor respuesta, por favor rellena esta información que nos será de utilidad para conocerte mejor.</p>
+  <hr class="my-4">
+  <form
+    [formGroup]="studentDataFormControls"
+    class="flex flex-col w-full space-y-4">
+
+    <!-- Personal Info -->
+    <div class="flex flex-col md:flex-row md:space-x-4">
+      <div class="w-full">
+        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Nombre completo:<span title="Campo obligatorio" class="align-super text-red-400 font-bold cursor-default">*</span></label>
+        <div class="flex flex-row space-x-2">
+          <input
+            formControlName="lastName" type="text" autocomplete="off" id="last_name" name="last_name"
+            [ngClass]="{'border-red-500': studentDataFormControls.get('lastName')?.invalid && studentDataFormControls.get('lastName')?.touched,
+            'border-green-500': studentDataFormControls.get('lastName')?.valid && studentDataFormControls.get('lastName')?.touched}"
+            class="w-full p-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Apellido paterno, apellido materno" required />
+          <input
+            formControlName="firstName" type="text" autocomplete="off" id="first_name" name="first_name"
+            [ngClass]="{'border-red-500': studentDataFormControls.get('firstName')?.invalid && studentDataFormControls.get('firstName')?.touched,
+            'border-green-500': studentDataFormControls.get('firstName')?.valid && studentDataFormControls.get('firstName')?.touched}"
+            class="w-full p-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Nombre(s)" required />
+        </div>
+      </div>
+      <div class="md:w-1/2">
+        <label for="role_number" class="block mb-2 text-sm font-medium text-gray-900">Matricula:<span title="Campo obligatorio" class="align-super text-red-400 font-bold cursor-default">*</span></label>
+        <input
+          formControlName="role_number" type="text" autocomplete="off" id="role_number" name="role_number"
+          [ngClass]="{'border-red-500': studentDataFormControls.get('role_number')?.invalid && studentDataFormControls.get('role_number')?.touched,
+          'border-green-500': studentDataFormControls.get('role_number')?.valid && studentDataFormControls.get('role_number')?.touched}"
+          class="w-full p-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="1234567890" required />
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row md:space-x-4">
+      <div class="w-full">
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Correo electrónico:<span title="Campo obligatorio" class="align-super text-red-400 font-bold cursor-default">*</span></label>
+        <input
+          formControlName="email" type="email" autocomplete="off" id="email" name="email"
+          [ngClass]="{'border-red-500': studentDataFormControls.get('email')?.invalid && studentDataFormControls.get('email')?.touched,
+          'border-green-500': studentDataFormControls.get('email')?.valid && studentDataFormControls.get('email')?.touched}"
+          class="w-full p-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="correo@prueba.com" required />
+      </div>
+      <div class="w-full">
+        <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">Teléfono:</label>
+        <input formControlName="phone" type="text" autocomplete="off" id="phone" name="phone" class="w-full p-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="(833) 111 2233" required />
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row justify-center md:space-x-4">
+      <label class="inline-flex items-center cursor-pointer">
+        <input type="checkbox" formControlName="gender" value="" class="sr-only peer">
+        <span class="me-3 text-sm font-medium text-gray-900">Masculino</span>
+        <div
+          [ngClass]="{'ring-4 ring-red-500': studentDataFormControls.get('gender')?.invalid && studentDataFormControls.get('gender')?.touched,
+          'ring-4 ring-green-500': studentDataFormControls.get('gender')?.valid && studentDataFormControls.get('gender')?.touched}"
+          class="relative w-11 h-6 bg-blue-600 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-pink-600"></div>
+        <span class="ms-3 text-sm font-medium text-gray-900">Femenino</span>
+      </label>
+    </div>
+
+    <!-- Academic Info -->
+
+    <div class="flex flex-col md:flex-row md:space-x-4">
+      <div class="w-full">
+        <label for="career" class="block mb-2 text-sm font-medium text-gray-900">Carrera<span title="Campo obligatorio" class="align-super text-red-400 font-bold cursor-default">*</span></label>
+        <select formControlName="career" id="career" name="career" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+          <option selected disabled value="0">Seleccione una carrera</option>
+          <option value="1">IC - Ingeniería Civil</option>
+          <option value="2">IIS - Ingeniería Industrial y de Sistemas</option>
+          <option value="3">ISC - Ingeniería en Sistemas Computacionales</option>
+          <option value="4">IN - Ingeniería en Negocios</option>
+        </select>
+      </div>
+      <div class="w-full">
+        <label for="semester" class="block mb-2 text-sm font-medium text-gray-900">Semestre<span title="Campo obligatorio" class="align-super text-red-400 font-bold cursor-default">*</span></label>
+        <select formControlName="semester" id="semester" name="semester" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+          <option selected disabled value="0">Seleccione tu semestre</option>
+          <option value="1">Primer Semestre</option>
+          <option value="2">Segundo Semestre</option>
+          <option value="3">Tercer Semestre</option>
+          <option value="4">Cuarto Semestre</option>
+          <option value="5">Quinto Semestre</option>
+          <option value="6">Sexto Semestre</option>
+          <option value="7">Séptimo Semestre</option>
+          <option value="8">Octavo Semestre</option>
+          <option value="9">Noveno Semestre</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="flex justify-end w-full">
+      <button type="submit" (click)="onStudentDataFormSubmit()" class="focus:outline-none text-white bg-orange-400 hover:bg-orange-300 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Continuar</button>
+    </div>
+  </form>
+</div>

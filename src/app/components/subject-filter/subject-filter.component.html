@@ -1,0 +1,27 @@
+<div class="bg-gray-200 shadow-sm flex md:flex-row flex-col justify-center p-4 space-y-4 md:space-y-0 md:space-x-4 md:p-4">
+  <div class="w-full">
+    <label for="subject" class="block mb-2 text-sm font-medium text-gray-900">Asignatura</label>
+    <select
+      [(ngModel)]="selectedSubject"
+      (change)="onSubjectChange()"
+      id="subject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+      <option value="0" selected disabled>Selecciona una asignatura</option>
+      <option value="1">Fundamentos de Programación</option>
+      <option value="2">Matemáticas básicas</option>
+      <option value="3">Cálculo diferencial</option>
+      <option value="4">Desarrollo de habilidades para aprender</option>
+    </select>
+  </div>
+  <div class="w-full">
+    <label for="topic" class="block mb-2 text-sm font-medium text-gray-900">Tema</label>
+    <select
+      [disabled]="!selectedSubject"
+      id="topic" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+      <option selected disabled>Selecciona un tema</option>
+      <option value="1">Tema 1 de la asignatura</option>
+      <option value="2">Tema 2 de la asignatura</option>
+      <option value="3">Tema 3 de la asignatura</option>
+      <option value="4">Tema 4 de la asignatura</option>
+    </select>
+  </div>
+</div>
