@@ -77,7 +77,7 @@ export class StudentFormComponent implements OnInit {
     }
 
     invalidFields = invalidFields.slice(0, -2);
-    this.formErrorMsg = `Por favor, llena los campos: ${invalidFields}`;
+    this.formErrorMsg = `Por favor, llena correctamente los campos: ${invalidFields}`;
     this.showDialog = true;
     setTimeout(() => {
       this.showDialog = false;
